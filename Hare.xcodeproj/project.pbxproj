@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		24895E7B1D124F7400D48633 /* Node.m in Sources */ = {isa = PBXBuildFile; fileRef = 24895E7A1D124F7400D48633 /* Node.m */; };
 		24E6FF091D0B927E00136C0B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E6FF081D0B927E00136C0B /* main.m */; };
 		24E6FF0C1D0B927E00136C0B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E6FF0B1D0B927E00136C0B /* AppDelegate.m */; };
 		24E6FF0F1D0B927E00136C0B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E6FF0E1D0B927E00136C0B /* ViewController.m */; };
@@ -15,6 +16,10 @@
 		24E6FF171D0B927E00136C0B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24E6FF151D0B927E00136C0B /* LaunchScreen.storyboard */; };
 		24E6FF221D0B927E00136C0B /* HareTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E6FF211D0B927E00136C0B /* HareTests.m */; };
 		24E6FF2D1D0B927E00136C0B /* HareUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E6FF2C1D0B927E00136C0B /* HareUITests.m */; };
+		24E6FF3D1D0B92B500136C0B /* Interpreter.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E6FF3C1D0B92B500136C0B /* Interpreter.m */; };
+		24E6FF3E1D0B945400136C0B /* Interpreter.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E6FF3C1D0B92B500136C0B /* Interpreter.m */; };
+		24E6FF431D0B955700136C0B /* Parser.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E6FF421D0B955700136C0B /* Parser.m */; };
+		24E6FF471D0B95FA00136C0B /* Tokenizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E6FF461D0B95FA00136C0B /* Tokenizer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		24895E791D124F7400D48633 /* Node.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Node.h; sourceTree = "<group>"; };
+		24895E7A1D124F7400D48633 /* Node.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Node.m; sourceTree = "<group>"; };
 		24E6FF041D0B927E00136C0B /* Hare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24E6FF081D0B927E00136C0B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		24E6FF0A1D0B927E00136C0B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -51,6 +58,12 @@
 		24E6FF281D0B927E00136C0B /* HareUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HareUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		24E6FF2C1D0B927E00136C0B /* HareUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HareUITests.m; sourceTree = "<group>"; };
 		24E6FF2E1D0B927E00136C0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		24E6FF3B1D0B92B500136C0B /* Interpreter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Interpreter.h; sourceTree = "<group>"; };
+		24E6FF3C1D0B92B500136C0B /* Interpreter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Interpreter.m; sourceTree = "<group>"; };
+		24E6FF411D0B955700136C0B /* Parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Parser.h; sourceTree = "<group>"; };
+		24E6FF421D0B955700136C0B /* Parser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Parser.m; sourceTree = "<group>"; };
+		24E6FF451D0B95FA00136C0B /* Tokenizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tokenizer.h; sourceTree = "<group>"; };
+		24E6FF461D0B95FA00136C0B /* Tokenizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tokenizer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +91,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		24895E781D124F5C00D48633 /* Node */ = {
+			isa = PBXGroup;
+			children = (
+				24895E791D124F7400D48633 /* Node.h */,
+				24895E7A1D124F7400D48633 /* Node.m */,
+			);
+			name = Node;
+			sourceTree = "<group>";
+		};
 		24E6FEFB1D0B927E00136C0B = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +123,7 @@
 		24E6FF061D0B927E00136C0B /* Hare */ = {
 			isa = PBXGroup;
 			children = (
+				24E6FF3A1D0B928B00136C0B /* Models */,
 				24E6FF0A1D0B927E00136C0B /* AppDelegate.h */,
 				24E6FF0B1D0B927E00136C0B /* AppDelegate.m */,
 				24E6FF0D1D0B927E00136C0B /* ViewController.h */,
@@ -138,6 +161,44 @@
 				24E6FF2E1D0B927E00136C0B /* Info.plist */,
 			);
 			path = HareUITests;
+			sourceTree = "<group>";
+		};
+		24E6FF3A1D0B928B00136C0B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				24895E781D124F5C00D48633 /* Node */,
+				24E6FF441D0B95EE00136C0B /* Tokenizer */,
+				24E6FF401D0B954B00136C0B /* Parser */,
+				24E6FF3F1D0B954200136C0B /* Interpreter */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		24E6FF3F1D0B954200136C0B /* Interpreter */ = {
+			isa = PBXGroup;
+			children = (
+				24E6FF3B1D0B92B500136C0B /* Interpreter.h */,
+				24E6FF3C1D0B92B500136C0B /* Interpreter.m */,
+			);
+			name = Interpreter;
+			sourceTree = "<group>";
+		};
+		24E6FF401D0B954B00136C0B /* Parser */ = {
+			isa = PBXGroup;
+			children = (
+				24E6FF411D0B955700136C0B /* Parser.h */,
+				24E6FF421D0B955700136C0B /* Parser.m */,
+			);
+			name = Parser;
+			sourceTree = "<group>";
+		};
+		24E6FF441D0B95EE00136C0B /* Tokenizer */ = {
+			isa = PBXGroup;
+			children = (
+				24E6FF451D0B95FA00136C0B /* Tokenizer.h */,
+				24E6FF461D0B95FA00136C0B /* Tokenizer.m */,
+			);
+			name = Tokenizer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -270,9 +331,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24E6FF3D1D0B92B500136C0B /* Interpreter.m in Sources */,
 				24E6FF0F1D0B927E00136C0B /* ViewController.m in Sources */,
+				24895E7B1D124F7400D48633 /* Node.m in Sources */,
 				24E6FF0C1D0B927E00136C0B /* AppDelegate.m in Sources */,
+				24E6FF471D0B95FA00136C0B /* Tokenizer.m in Sources */,
 				24E6FF091D0B927E00136C0B /* main.m in Sources */,
+				24E6FF431D0B955700136C0B /* Parser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,6 +345,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24E6FF3E1D0B945400136C0B /* Interpreter.m in Sources */,
 				24E6FF221D0B927E00136C0B /* HareTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -498,6 +564,7 @@
 				24E6FF331D0B927E00136C0B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		24E6FF341D0B927E00136C0B /* Build configuration list for PBXNativeTarget "HareTests" */ = {
 			isa = XCConfigurationList;
@@ -506,6 +573,7 @@
 				24E6FF361D0B927E00136C0B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		24E6FF371D0B927E00136C0B /* Build configuration list for PBXNativeTarget "HareUITests" */ = {
 			isa = XCConfigurationList;
@@ -514,6 +582,7 @@
 				24E6FF391D0B927E00136C0B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -7,6 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "Interpreter.h"
 
 @interface HareTests : XCTestCase
 
@@ -17,6 +18,7 @@
 - (void)setUp {
     [super setUp];
     // Put setup code here. This method is called before the invocation of each test method in the class.
+    id square = @[@"def", @"square", @[@"x"], @[@"*", @"x", @"x"]];
 }
 
 - (void)tearDown {
@@ -24,16 +26,26 @@
     [super tearDown];
 }
 
-- (void)testExample {
-    // This is an example of a functional test case.
-    // Use XCTAssert and related functions to verify your tests produce the correct results.
+- (void)testLiterals {
+    Interpreter *interpreter = [Interpreter new];
+    
+    NSNumber *numberLiteral = (NSNumber *) [interpreter evaluate:@1];
+    XCTAssert( [numberLiteral isKindOfClass:[NSNumber class]] , @"number literal" );
+    XCTAssert( [numberLiteral isEqualToNumber:[NSNumber numberWithInt:1]] );
+    
+    NSString *stringLiteral = [interpreter evaluate:@"foo"];
+    XCTAssert( [stringLiteral isKindOfClass:[NSString class]], @"string literal" );
+    XCTAssert( [stringLiteral isEqualToString:@"foo"] );
+    
 }
 
+/*
 - (void)testPerformanceExample {
     // This is an example of a performance test case.
     [self measureBlock:^{
         // Put the code you want to measure the time of here.
     }];
 }
+*/
 
 @end
