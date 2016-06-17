@@ -18,8 +18,6 @@
 		24E6FF2D1D0B927E00136C0B /* HareUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E6FF2C1D0B927E00136C0B /* HareUITests.m */; };
 		24E6FF3D1D0B92B500136C0B /* Interpreter.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E6FF3C1D0B92B500136C0B /* Interpreter.m */; };
 		24E6FF3E1D0B945400136C0B /* Interpreter.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E6FF3C1D0B92B500136C0B /* Interpreter.m */; };
-		24E6FF431D0B955700136C0B /* Parser.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E6FF421D0B955700136C0B /* Parser.m */; };
-		24E6FF471D0B95FA00136C0B /* Tokenizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E6FF461D0B95FA00136C0B /* Tokenizer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,10 +58,6 @@
 		24E6FF2E1D0B927E00136C0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		24E6FF3B1D0B92B500136C0B /* Interpreter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Interpreter.h; sourceTree = "<group>"; };
 		24E6FF3C1D0B92B500136C0B /* Interpreter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Interpreter.m; sourceTree = "<group>"; };
-		24E6FF411D0B955700136C0B /* Parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Parser.h; sourceTree = "<group>"; };
-		24E6FF421D0B955700136C0B /* Parser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Parser.m; sourceTree = "<group>"; };
-		24E6FF451D0B95FA00136C0B /* Tokenizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tokenizer.h; sourceTree = "<group>"; };
-		24E6FF461D0B95FA00136C0B /* Tokenizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tokenizer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,8 +161,6 @@
 			isa = PBXGroup;
 			children = (
 				24895E781D124F5C00D48633 /* Node */,
-				24E6FF441D0B95EE00136C0B /* Tokenizer */,
-				24E6FF401D0B954B00136C0B /* Parser */,
 				24E6FF3F1D0B954200136C0B /* Interpreter */,
 			);
 			name = Models;
@@ -181,24 +173,6 @@
 				24E6FF3C1D0B92B500136C0B /* Interpreter.m */,
 			);
 			name = Interpreter;
-			sourceTree = "<group>";
-		};
-		24E6FF401D0B954B00136C0B /* Parser */ = {
-			isa = PBXGroup;
-			children = (
-				24E6FF411D0B955700136C0B /* Parser.h */,
-				24E6FF421D0B955700136C0B /* Parser.m */,
-			);
-			name = Parser;
-			sourceTree = "<group>";
-		};
-		24E6FF441D0B95EE00136C0B /* Tokenizer */ = {
-			isa = PBXGroup;
-			children = (
-				24E6FF451D0B95FA00136C0B /* Tokenizer.h */,
-				24E6FF461D0B95FA00136C0B /* Tokenizer.m */,
-			);
-			name = Tokenizer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -335,9 +309,7 @@
 				24E6FF0F1D0B927E00136C0B /* ViewController.m in Sources */,
 				24895E7B1D124F7400D48633 /* Node.m in Sources */,
 				24E6FF0C1D0B927E00136C0B /* AppDelegate.m in Sources */,
-				24E6FF471D0B95FA00136C0B /* Tokenizer.m in Sources */,
 				24E6FF091D0B927E00136C0B /* main.m in Sources */,
-				24E6FF431D0B955700136C0B /* Parser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

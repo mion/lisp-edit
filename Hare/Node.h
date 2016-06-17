@@ -7,9 +7,20 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface Node : NSObject
 
-@property(nonatomic, strong) Node *parent;
+- (id)initWithValue:(id)value;
+- (BOOL)isString;
+- (BOOL)isNumber;
+- (BOOL)isArray;
+- (NSArray<Node *> *)siblings;
+
+@property(nonatomic, readonly) id value;
+@property(nonatomic, readonly) NSArray<Node *> *children;
+@property(nonatomic, weak) Node *parent;
+@property(nonatomic, weak) Node *next;
+@property(nonatomic, weak) Node *previous;
 
 @end

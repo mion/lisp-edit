@@ -7,27 +7,70 @@
 //
 
 #import "ViewController.h"
+#import "Node.h"
 
 @interface ViewController ()
 
+@property(nonatomic, strong) Node *rootNode;
+@property(nonatomic, weak) Node *selectedNode;
 @property(nonatomic, weak) IBOutlet UIView *canvas;
 
 @end
 
 @implementation ViewController
 
+const CGFloat PADDING = 5;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    id el = @[@"hello", @[@1, @2, @3], @"'world'", @42, @"foobar"];
-    UIView *renderedEl = [self renderElement:el];
-    
-    [self.canvas addSubview:renderedEl];
+    id el = @[@"hello", @[@1, @[@"foo", @2, @"'bar'"]], @3, @"'quux'"];
+    _rootNode = [[Node alloc] initWithValue:el];
+    _selectedNode = _rootNode;
+    [self renderCanvas];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)renderCanvas {
+    UIView *renderedNode = [self node:_rootNode renderWithPadding:PADDING];
+    [self.canvas addSubview:renderedNode];
+}
+
+- (void)clearCanvas {
+    for (UIView *view in self.canvas.subviews) {
+        [view removeFromSuperview];
+    }
+}
+
+- (IBAction)upAction:(id)sender {
+    if (_selectedNode.parent) {
+        _selectedNode = _selectedNode.parent;
+    }
+    [self clearCanvas];
+    [self renderCanvas];
+}
+
+- (IBAction)leftAction:(id)sender {
+    if (_selectedNode.previous) {
+        _selectedNode = _selectedNode.previous;
+    }
+    [self clearCanvas];
+    [self renderCanvas];
+}
+
+- (IBAction)rightAction:(id)sender {
+    if (_selectedNode.next) {
+        _selectedNode = _selectedNode.next;
+    }
+    [self clearCanvas];
+    [self renderCanvas];
+}
+
+- (IBAction)downAction:(id)sender {
+    if (_selectedNode.children.count > 0) {
+        _selectedNode = _selectedNode.children.firstObject;
+    }
+    [self clearCanvas];
+    [self renderCanvas];
 }
 
 - (void)view:(UIView *)view addSubviewToTheRight:(UIView *)childView withPadding:(CGFloat)padding {
@@ -60,6 +103,43 @@ CGRect CGRectMakeWithViews(NSArray *arr, CGFloat padding) {
     return CGRectMake(0, 0, totalWidth, maxHeight);
 }
 
+- (UIView *)node:(Node *)node renderWithPadding:(CGFloat)padding {
+    if ([node.value isKindOfClass:[NSString class]]) {
+        NSString *string = (NSString *)node.value;
+        UILabel *label = [self labelWithString:string];
+        if ([node isEqual:_selectedNode]) {
+            [label setBackgroundColor:[UIColor yellowColor]];
+        }
+        return label;
+    } else if ([node.value isKindOfClass:[NSNumber class]]) {
+        NSNumber *number = (NSNumber *)node.value;
+        UILabel *label = [self labelWithNumber:number];
+        if ([node isEqual:_selectedNode]) {
+            [label setBackgroundColor:[UIColor yellowColor]];
+        }
+        return label;
+    } else if ([node.value isKindOfClass:[NSArray class]]) {
+        UIView *view = [[UIView alloc] initWithFrame:CGRectZero];
+        UILabel *leftParens = [self labelWithString:@"("];
+        [view addSubview:leftParens];
+        for (NSUInteger idx = 0; idx < node.children.count; idx++) {
+            Node *child = [node.children objectAtIndex:idx];
+            UIView *childView = [self node:child renderWithPadding:padding];
+            [self view:view addSubviewToTheRight:childView withPadding:padding];
+        }
+        UILabel *rightParens = [self labelWithString:@")"];
+        [self view:view addSubviewToTheRight:rightParens withPadding:padding];
+        view.frame = CGRectMakeWithViews(view.subviews, padding);
+        if ([node isEqual:_selectedNode]) {
+            [view setBackgroundColor:[UIColor yellowColor]];
+        }
+        return view;
+    } else {
+        return [[UIView alloc] initWithFrame:CGRectZero]; // empty view
+    }
+}
+
+/*
 - (UIView *)renderElement:(id)element {
     if ([element isKindOfClass:[NSString class]]) {
         NSString *string = (NSString *)element;
@@ -88,6 +168,7 @@ CGRect CGRectMakeWithViews(NSArray *arr, CGFloat padding) {
         return [[UIView alloc] initWithFrame:CGRectZero]; // empty view
     }
 }
+*/
 
 - (UILabel *)labelWithString:(NSString *)string {
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectZero];
