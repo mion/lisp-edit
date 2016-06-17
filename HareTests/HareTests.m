@@ -8,6 +8,7 @@
 
 #import <XCTest/XCTest.h>
 #import "Interpreter.h"
+#import "Node.h"
 
 @interface HareTests : XCTestCase
 
@@ -18,7 +19,6 @@
 - (void)setUp {
     [super setUp];
     // Put setup code here. This method is called before the invocation of each test method in the class.
-    id square = @[@"def", @"square", @[@"x"], @[@"*", @"x", @"x"]];
 }
 
 - (void)tearDown {
@@ -36,7 +36,33 @@
     NSString *stringLiteral = [interpreter evaluate:@"foo"];
     XCTAssert( [stringLiteral isKindOfClass:[NSString class]], @"string literal" );
     XCTAssert( [stringLiteral isEqualToString:@"foo"] );
+}
+
+- (void)testNodeConstructor {
+    Node *num = [Node nodeWithValue:@123];
+    XCTAssert( [num.value isEqualToNumber:@123] );
     
+    Node *str = [Node nodeWithValue:@"foo"];
+    XCTAssert( [str.value isEqualToString:@"foo"] );
+    
+    Node *arr = [Node nodeWithValue:@[@1, @"two", @3]];
+    NSArray *arrValue = @[@1, @"two", @3];
+    XCTAssert( [arr.value isEqualToArray:arrValue] );
+    XCTAssert( arr.children.count == 3 );
+    XCTAssert( arr.parent == nil );
+    XCTAssert( arr.children[0].parent == arr );
+    XCTAssert( arr.children[1].parent == arr );
+    XCTAssert( arr.children[2].parent == arr );
+}
+
+- (void)testNodeInsert {
+    Node *root = [Node nodeWithValue:@[@1, @3, @4]];
+    Node *one = root.children.firstObject;
+    Node *two = [one insertNext:[Node nodeWithValue:@2]];
+    XCTAssert( [two.value isEqualToNumber:@2] );
+    XCTAssert( root.children.count == 4 );
+    XCTAssert( [two.next.value isEqualToNumber:@3] );
+    XCTAssert( [two.previous.value isEqualToNumber:@1] );
 }
 
 /*

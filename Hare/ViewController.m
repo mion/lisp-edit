@@ -73,6 +73,14 @@ const CGFloat PADDING = 5;
     [self renderCanvas];
 }
 
+- (IBAction)insertNodeAction:(id)sender {
+    
+}
+
+- (IBAction)replaceNodeAction:(id)sender {
+    
+}
+
 - (void)view:(UIView *)view addSubviewToTheRight:(UIView *)childView withPadding:(CGFloat)padding {
     if (view.subviews.count > 0) {
         UIView *lastSubview = view.subviews.lastObject;

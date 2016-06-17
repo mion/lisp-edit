@@ -10,6 +10,10 @@
 
 @implementation Node
 
++ (Node *)nodeWithValue:(id)value {
+    return [[Node alloc] initWithValue:value];
+}
+
 - (id)initWithValue:(id)value {
     self = [super init];
     if (self) {
@@ -41,6 +45,26 @@
     if (_parent) {
         return _parent.children;
     } else return @[];
+}
+
+- (void)replaceValue:(id)newValue {
+    _value = newValue;
+}
+
+- (Node *)remove {
+    return self;
+}
+
+- (Node *)insertNext:(Node *)node {
+    if (self.parent == nil) { return nil; }
+    
+#warning TODO: stopped here
+    
+    return node;
+}
+
+- (Node *)insertChild:(Node *)node {
+    return node;
 }
 
 @end

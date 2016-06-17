@@ -11,11 +11,16 @@
 
 @interface Node : NSObject
 
++ (Node *)nodeWithValue:(id)value;
 - (id)initWithValue:(id)value;
 - (BOOL)isString;
 - (BOOL)isNumber;
 - (BOOL)isArray;
 - (NSArray<Node *> *)siblings;
+- (void)replaceValue:(id)newValue;
+- (Node *)remove;
+- (Node *)insertNext:(Node *)node;
+- (Node *)insertChild:(Node *)node;
 
 @property(nonatomic, readonly) id value;
 @property(nonatomic, readonly) NSArray<Node *> *children;
