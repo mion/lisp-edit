@@ -139,37 +139,6 @@ CGRect CGRectMakeWithViews(NSArray *arr, CGFloat padding) {
     }
 }
 
-/*
-- (UIView *)renderElement:(id)element {
-    if ([element isKindOfClass:[NSString class]]) {
-        NSString *string = (NSString *)element;
-        UILabel *label = [self labelWithString:string];
-        return label;
-    } else if ([element isKindOfClass:[NSNumber class]]) {
-        NSNumber *number = (NSNumber *)element;
-        UILabel *label = [self labelWithNumber:number];
-        return label;
-    } else if ([element isKindOfClass:[NSArray class]]) {
-        CGFloat const PADDING = 5;
-        NSArray *array = (NSArray *)element;
-        UIView *view = [[UIView alloc] initWithFrame:CGRectZero];
-        UILabel *leftParens = [self labelWithString:@"("];
-        [view addSubview:leftParens];
-        for (NSUInteger idx = 0; idx < array.count; idx++) {
-            id childElement = [array objectAtIndex:idx];
-            UIView *childView = [self renderElement:childElement];
-            [self view:view addSubviewToTheRight:childView withPadding:PADDING];
-        }
-        UILabel *rightParens = [self labelWithString:@")"];
-        [self view:view addSubviewToTheRight:rightParens withPadding:PADDING];
-        view.frame = CGRectMakeWithViews(view.subviews, PADDING);
-        return view;
-    } else {
-        return [[UIView alloc] initWithFrame:CGRectZero]; // empty view
-    }
-}
-*/
-
 - (UILabel *)labelWithString:(NSString *)string {
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectZero];
     [label setText:string];
