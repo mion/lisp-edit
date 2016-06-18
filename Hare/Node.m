@@ -59,11 +59,11 @@
     return self.parent != nil;
 }
 
-- (Node *)insertNext:(Node *)node {
+- (Node *)insertNext:(id)value {
     if (![self canInsertNext]) {
         return nil;
     }
-    
+    Node *node = [Node nodeWithValue:value];
     Node *next = self.next;
     
     if (next) {
@@ -78,8 +78,12 @@
     
     NSUInteger myIndex = [self.parent.children indexOfObject:self];
     NSMutableArray *mutableChildren = [NSMutableArray arrayWithArray:self.parent.children];
-    [mutableChildren insertObject:node atIndex:(myIndex + 1)];
+    [mutableChildren insertObject:node atIndex:myIndex + 1];
     self.parent.children = mutableChildren;
+    
+    NSMutableArray *arrayValue = [NSMutableArray arrayWithArray:self.parent.value];
+    [arrayValue insertObject:value atIndex:myIndex + 1];
+    self.parent.value = arrayValue;
     
     return node;
 }
@@ -88,8 +92,8 @@
     return self.children != nil;
 }
 
-- (Node *)insertChild:(Node *)node {
-    return node;
+- (Node *)insertChild:(id)value {
+    return self;
 }
 
 @end
