@@ -55,12 +55,37 @@
     return self;
 }
 
+- (BOOL)canInsertNext {
+    return self.parent != nil;
+}
+
 - (Node *)insertNext:(Node *)node {
-    if (self.parent == nil) { return nil; }
+    if (![self canInsertNext]) {
+        return nil;
+    }
     
-#warning TODO: stopped here
+    Node *next = self.next;
+    
+    if (next) {
+        next.previous = node;
+        node.next = next;
+    }
+    
+    node.previous = self;
+    self.next = node;
+    
+    node.parent = self.parent;
+    
+    NSUInteger myIndex = [self.parent.children indexOfObject:self];
+    NSMutableArray *mutableChildren = [NSMutableArray arrayWithArray:self.parent.children];
+    [mutableChildren insertObject:node atIndex:(myIndex + 1)];
+    self.parent.children = mutableChildren;
     
     return node;
+}
+
+- (BOOL)canInsertChild {
+    return self.children != nil;
 }
 
 - (Node *)insertChild:(Node *)node {

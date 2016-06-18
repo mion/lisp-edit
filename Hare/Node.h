@@ -19,11 +19,13 @@
 - (NSArray<Node *> *)siblings;
 - (void)replaceValue:(id)newValue;
 - (Node *)remove;
-- (Node *)insertNext:(Node *)node;
-- (Node *)insertChild:(Node *)node;
+- (BOOL)canInsertNext;
+- (Node *)insertNext:(id)value;
+- (BOOL)canInsertChild;
+- (Node *)insertChild:(id)value;
 
 @property(nonatomic, readonly) id value;
-@property(nonatomic, readonly) NSArray<Node *> *children;
+@property(nonatomic, weak) NSArray<Node *> *children;
 @property(nonatomic, weak) Node *parent;
 @property(nonatomic, weak) Node *next;
 @property(nonatomic, weak) Node *previous;
