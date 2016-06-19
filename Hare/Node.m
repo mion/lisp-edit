@@ -60,6 +60,7 @@
 }
 
 - (Node *)insertNext:(id)value {
+    /*
     if (![self canInsertNext]) {
         return nil;
     }
@@ -86,6 +87,8 @@
     self.parent.value = arrayValue;
     
     return node;
+     */
+    return self;
 }
 
 - (BOOL)canInsertChild {

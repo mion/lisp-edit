@@ -24,8 +24,8 @@
 - (BOOL)canInsertChild;
 - (Node *)insertChild:(id)value;
 
-@property(nonatomic, weak) id value;
-@property(nonatomic, weak) NSArray<Node *> *children;
+@property(nonatomic, readonly) id value;
+@property(nonatomic, readonly) NSArray<Node *> *children;
 @property(nonatomic, weak) Node *parent;
 @property(nonatomic, weak) Node *next;
 @property(nonatomic, weak) Node *previous;
