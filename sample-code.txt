@@ -1,0 +1,10 @@
+(func (is-multiple? n k) (= 0 (% n k)))
+(func (naturals-up-to n) 
+  (do 
+      (let naturals []) 
+          (for i 1 (- n 1) (push naturals i))
+              naturals))
+(func (sum lst) (reduce lst +))
+(func answer () 
+  (sum (filter (naturals-up-to 1000) (or (is-multiple? 3) (is-multiple? 5)))))
+
