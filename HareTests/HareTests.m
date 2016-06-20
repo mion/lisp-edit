@@ -45,14 +45,17 @@
     Node *str = [Node nodeWithValue:@"foo"];
     XCTAssert( [str.value isEqualToString:@"foo"] );
     
-    Node *arr = [Node nodeWithValue:@[@1, @"two", @3]];
-    NSArray *arrValue = @[@1, @"two", @3];
+    Node *arr = [Node nodeWithValue:@[@1, @"two", @[]]];
+    NSArray *arrValue = @[@1, @"two", @[]];
     XCTAssert( [arr.value isEqualToArray:arrValue] );
     XCTAssert( arr.children.count == 3 );
     XCTAssert( arr.parent == nil );
     XCTAssert( arr.children[0].parent == arr );
     XCTAssert( arr.children[1].parent == arr );
     XCTAssert( arr.children[2].parent == arr );
+    XCTAssert( [arr.children[0].value isEqualToNumber:@1] );
+    XCTAssert( [arr.children[1].value isEqualToString:@"two"] );
+    XCTAssert( [arr.children[2].value isEqualToArray:@[]] );
 }
 
 - (void)testNodeInsert {
